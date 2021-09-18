@@ -2,18 +2,22 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const memberSchema = new Schema({
-  nameBank: {
+  firstName: {
     type: String,
     required: true,
   },
-  nomorRekening: {
+  lastName: {
     type: String,
     required: true,
   },
-  name: {
+  email: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
     type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model("Bank", memberSchema);
+module.exports = mongoose.model("Member", memberSchema);
