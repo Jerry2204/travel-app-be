@@ -2,7 +2,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#add-modal">
             <i class="fas fa-plus"></i>
         </button>
     </div>
@@ -22,7 +22,9 @@
                         <td><%= i+1 %></td>
                         <td><%= category[i].name %></td>
                         <td>
-                            <a href="" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="javascript:void()" type="button"
+                                class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= category[i].id %>"
+                                data-name="<%= category[i].name %>"><i class="fas fa-edit"></i></a>
                             <a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
