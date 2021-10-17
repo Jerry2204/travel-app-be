@@ -2,8 +2,8 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Add
+        <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#exampleModal">
+            <i class="fas fa-plus"></i>
         </button>
     </div>
     <div class="card-body">
@@ -16,6 +16,18 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <% for(let i = 0; i < category.length; i++) { %>
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%= category[i].name %></td>
+                        <td>
+                            <a href="" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
             </table>
         </div>
     </div>
