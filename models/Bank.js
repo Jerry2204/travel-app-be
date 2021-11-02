@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema;
 
-const bankSchema = new Schema({
+const bankSchema = new mongoose.Schema({
   nameBank: {
     type: String,
     required: true,
@@ -11,6 +11,10 @@ const bankSchema = new Schema({
     required: true,
   },
   name: {
+    type: String,
+    required: true,
+  },
+  imageUrl: {
     type: String,
     required: true,
   },
