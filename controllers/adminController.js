@@ -63,7 +63,6 @@ module.exports = {
     try {
       const { id } = req.params;
       const category = await Category.findOne({ _id: id });
-      console.log(category);
       await category.remove();
       req.flash("alertMessage", "Success Delete Category");
       req.flash("alertStatus", "success");
@@ -114,6 +113,22 @@ module.exports = {
         await bank.save();
       }
       req.flash("alertMessage", "Success Edit Bank");
+      req.flash("alertStatus", "success");
+      res.redirect("/admin/bank");
+    } catch (error) {
+      req.flash("alertMessage", `${error.message}`);
+      req.flash("alertStatus", "danger");
+      res.redirect("/admin/bank");
+    }
+  },
+
+  deleteBank: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const bank = await Bank.findOne({ _id: id });
+      fs.unlink(path.join(`public/${bank.imageUrl}`));
+      await bank.remove();
+      req.flash("alertMessage", "Success Delete Bank");
       req.flash("alertStatus", "success");
       res.redirect("/admin/bank");
     } catch (error) {
