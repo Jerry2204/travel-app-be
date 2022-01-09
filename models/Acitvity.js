@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
+const { ObjectId } = mongoose.Schema;
 
 const activitySchema = new Schema({
   name: {
@@ -16,6 +17,10 @@ const activitySchema = new Schema({
   },
   isPopular: {
     type: Boolean,
+  },
+  itemId: {
+    type: ObjectId,
+    ref: "Item",
   },
 });
 
