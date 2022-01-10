@@ -20,8 +20,18 @@
                 <h1 class="h3 mb-4 text-gray-800">Item</h1>
                 <!-- End Heading -->
 
-                <%- include('table.ejs') %>
-
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="show-item-tab" data-toggle="tab" href="#show-item" role="tab"
+                            aria-controls="show-item" aria-selected="true">Show Item</a>
+                        <a class="nav-link" id="add-item-tab" data-toggle="tab" href="#add-item" role="tab"
+                            aria-controls="add-item" aria-selected="false">Add Item</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <%- include('table.ejs') %>
+                    <%- include('add_item.ejs') %>
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -62,3 +72,6 @@
 </div>
 
 <%- include('../../parts/js.ejs') %>
+<script>
+    CKEDITOR.replace('about');
+</script>
