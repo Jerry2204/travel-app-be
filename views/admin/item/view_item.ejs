@@ -21,6 +21,7 @@
                 <h1 class="h3 mb-4 text-gray-800">Item</h1>
                 <!-- End Heading -->
 
+                <% if(action == 'view') { %>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-link active" id="show-item-tab" data-toggle="tab" href="#show-item" role="tab"
@@ -33,6 +34,17 @@
                     <%- include('table.ejs') %>
                     <%- include('add_item.ejs') %>
                 </div>
+                <% } else if(action == 'show image') { %>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="show-item-tab" data-toggle="tab" href="#show-image" role="tab"
+                            aria-controls="show-image" aria-selected="true">Show Image</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <%- include('show_image.ejs') %>
+                </div>
+                <% } %>
             </div>
             <!-- /.container-fluid -->
 

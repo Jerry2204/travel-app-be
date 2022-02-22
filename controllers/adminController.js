@@ -179,6 +179,7 @@ module.exports = {
         title: "Staycation | Item",
         alert,
         item,
+        action: "view",
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -214,6 +215,33 @@ module.exports = {
         req.flash("alertStatus", "success");
         res.redirect("/admin/item");
       }
+    } catch (error) {
+      req.flash("alertMessage", `${error.message}`);
+      req.flash("alertStatus", "danger");
+      res.redirect("/admin/item");
+    }
+  },
+
+  showImageItem: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const item = await Item.findOne({ _id: id }).populate({
+        path: "imageId",
+        select: "id imageUrl",
+      });
+      console.log(item.imageId);
+      const alertMessage = req.flash("alertMessage");
+      const alertStatus = req.flash("alertStatus");
+      const alert = {
+        message: alertMessage,
+        status: alertStatus,
+      };
+      res.render("admin/item/view_item", {
+        title: "Staycation | Item",
+        alert,
+        item,
+        action: "show image",
+      });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger");
