@@ -161,6 +161,12 @@ module.exports = {
 
   viewItem: async (req, res) => {
     try {
+      const item = await Item.find()
+        .populate({
+          path: "imageId",
+          select: "id imageUrl",
+        })
+        .populate({ path: "categoryId", select: "id name" });
       const category = await Category.find();
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
@@ -172,6 +178,7 @@ module.exports = {
         category,
         title: "Staycation | Item",
         alert,
+        item,
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -183,6 +190,7 @@ module.exports = {
   addItem: async (req, res) => {
     try {
       const { categoryId, title, price, city, about } = req.body;
+      console.log(categoryId);
       if (req.files.length > 0) {
         const category = await Category.findOne({ _id: categoryId });
         const newItem = {
