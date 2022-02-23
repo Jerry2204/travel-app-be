@@ -248,7 +248,7 @@ module.exports = {
     }
   },
 
-  editItem: async (req, res) => {
+  showEditItem: async (req, res) => {
     try {
       const { id } = req.params;
       const item = await Item.findOne({ _id: id })
@@ -260,7 +260,6 @@ module.exports = {
           path: "categoryId",
           select: "id name",
         });
-      console.log(item);
       const category = await Category.find();
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
