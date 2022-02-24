@@ -284,6 +284,7 @@ module.exports = {
   editItem: async (req, res) => {
     try {
       const { id } = req.params;
+      console.log(id);
       const { categoryId, title, price, city, about } = req.body;
       const item = await Item.findOne({ _id: id })
         .populate({
