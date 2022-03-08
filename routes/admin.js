@@ -1,29 +1,30 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
-const adminController = require("../controllers/adminController");
-const { uploadSingle, uploadMultiple } = require("../middleware/multer");
+const adminController = require('../controllers/adminController');
+const { uploadSingle, uploadMultiple } = require('../middleware/multer');
 
 /* GET home page. */
-router.get("/dashboard", adminController.viewDashboard);
+router.get('/dashboard', adminController.viewDashboard);
 
 /* Endpoint For Category */
-router.get("/category", adminController.viewCategory);
-router.post("/category", adminController.addCategory);
-router.put("/category", adminController.editCategory);
-router.delete("/category/:id", adminController.deleteCategory);
+router.get('/category', adminController.viewCategory);
+router.post('/category', adminController.addCategory);
+router.put('/category', adminController.editCategory);
+router.delete('/category/:id', adminController.deleteCategory);
 
-router.get("/bank", adminController.viewBank);
-router.post("/bank", uploadSingle, adminController.addBank);
-router.put("/bank", uploadSingle, adminController.editBank);
-router.delete("/bank/:id", uploadSingle, adminController.deleteBank);
+router.get('/bank', adminController.viewBank);
+router.post('/bank', uploadSingle, adminController.addBank);
+router.put('/bank', uploadSingle, adminController.editBank);
+router.delete('/bank/:id', uploadSingle, adminController.deleteBank);
 
 /* Endpoint For Item */
-router.get("/item", adminController.viewItem);
-router.post("/item", uploadMultiple, adminController.addItem);
-router.get("/item/show-image/:id", adminController.showImageItem);
-router.get("/item/:id", adminController.showEditItem);
-router.put("/item/:id", uploadMultiple, adminController.editItem);
+router.get('/item', adminController.viewItem);
+router.post('/item', uploadMultiple, adminController.addItem);
+router.get('/item/show-image/:id', adminController.showImageItem);
+router.get('/item/:id', adminController.showEditItem);
+router.put('/item/:id', uploadMultiple, adminController.editItem);
+router.delete('/item/:id/delete', adminController.deleteItem);
 
-router.get("/booking", adminController.viewBooking);
+router.get('/booking', adminController.viewBooking);
 
 module.exports = router;
