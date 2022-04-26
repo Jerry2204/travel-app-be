@@ -1,0 +1,55 @@
+<div class="tab-pane fade show active" id="show-feature" role="tabpanel" aria-labelledby="show-feature-tab">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 mt-5">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="/admin/bank" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">Name Bank</label>
+                                <input type="text" class="form-control" name="nameBank" placeholder="Enter name bank"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nomor Rekening</label>
+                                <input type="text" class="form-control" name="nomorRekening"
+                                    placeholder="Enter nomor rekening" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Image</label>
+                                <input type="file" class="form-control" name="image" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Country</th>
+                                    <th>City</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
