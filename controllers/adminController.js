@@ -363,6 +363,19 @@ module.exports = {
     }
   },
 
+  viewDetailItem: async (req, res) => {
+    const { itemId } = req.params;
+    try {
+      res.render('admin/item/detail_item/view_detail_item', {
+        title: 'Staycation | Detail Item',
+      });
+    } catch (error) {
+      req.flash('alertMessage', `${error.message}`);
+      req.flash('alertStatus', 'danger');
+      res.redirect(`/admin/item/show-detail-item/${itemId}`);
+    }
+  },
+
   viewBooking: (req, res) => {
     res.render('admin/booking/view_booking', {
       title: 'Staycation | Booking',
