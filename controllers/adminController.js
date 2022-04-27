@@ -388,4 +388,6 @@ module.exports = {
       title: 'Staycation | Booking',
     });
   },
+
+  viewDetailBooking: (req, res) => {},
 };
