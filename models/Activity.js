@@ -1,8 +1,7 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
 
-const activitySchema = new Schema({
+const activitySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -20,8 +19,8 @@ const activitySchema = new Schema({
   },
   itemId: {
     type: ObjectId,
-    ref: "Item",
+    ref: 'Item',
   },
 });
 
-module.exports = mongoose.model("Activity", activitySchema);
+module.exports = mongoose.model('Activity', activitySchema);
