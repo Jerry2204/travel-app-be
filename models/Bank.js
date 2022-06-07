@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
 
 const bankSchema = new mongoose.Schema({
@@ -20,4 +20,4 @@ const bankSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Bank", bankSchema);
+module.exports = mongoose.model('Bank', bankSchema);

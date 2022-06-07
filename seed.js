@@ -22,7 +22,7 @@ seeder.connect(
       './models/Image',
       './models/Member',
       './models/Booking',
-      './models/Users',
+      './models/User',
     ]);
 
     // Clear specified collections
@@ -36,7 +36,7 @@ seeder.connect(
         'Feature',
         'Image',
         'Booking',
-        'Users',
+        'User',
       ],
       function () {
         // Callback to populate DB once collections have been cleared
@@ -101,7 +101,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb1') },
@@ -148,7 +147,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb4') },
@@ -195,7 +193,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb7') },
@@ -242,7 +239,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd10') },
@@ -289,7 +285,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd13') },
@@ -336,7 +331,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd16') },
@@ -383,7 +377,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd19') },
@@ -430,7 +423,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd22') },
@@ -477,7 +469,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd25') },
@@ -524,7 +515,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd28') },
@@ -571,7 +561,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd32') },
@@ -618,7 +607,6 @@ var data = [
         isPopular: false,
         description:
           'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
-        unit: 'night',
         imageId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd36') },
           // done
