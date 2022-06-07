@@ -4,6 +4,8 @@ const adminController = require('../controllers/adminController');
 const { uploadSingle, uploadMultiple } = require('../middleware/multer');
 
 /* GET home page. */
+router.get('/signin', adminController.viewLogin);
+router.post('/signin', adminController.signIn);
 router.get('/dashboard', adminController.viewDashboard);
 
 /* Endpoint For Category */
