@@ -2,10 +2,12 @@ var express = require('express');
 var router = express.Router();
 const adminController = require('../controllers/adminController');
 const { uploadSingle, uploadMultiple } = require('../middleware/multer');
+const auth = require('../middleware/auth');
 
 /* GET home page. */
 router.get('/signin', adminController.viewLogin);
 router.post('/signin', adminController.signIn);
+router.use(auth);
 router.get('/dashboard', adminController.viewDashboard);
 
 /* Endpoint For Category */
