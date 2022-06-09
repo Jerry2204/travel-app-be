@@ -4,6 +4,8 @@ const Item = require('../models/Item');
 const Image = require('../models/Image');
 const Feature = require('../models/Feature');
 const Activity = require('../models/Activity');
+const Booking = require('../models/Booking');
+const Member = require('../models/Member');
 const User = require('../models/User');
 const fs = require('fs-extra');
 const path = require('path');
@@ -607,10 +609,17 @@ module.exports = {
     }
   },
 
-  viewBooking: (req, res) => {
-    res.render('admin/booking/view_booking', {
-      title: 'Staycation | Booking',
-      user: req.session.user,
-    });
+  viewBooking: async (req, res) => {
+    try {
+      const booking = await Booking.find()
+        .populate('memberId')
+        .populate('bankId');
+
+      res.render('admin/booking/view_booking', {
+        title: 'Staycation | Booking',
+        user: req.session.user,
+        booking,
+      });
+    } catch (error) {}
   },
 };
