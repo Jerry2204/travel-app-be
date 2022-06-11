@@ -639,6 +639,8 @@ module.exports = {
         user: req.session.user,
         booking,
       });
-    } catch (error) {}
+    } catch (error) {
+      res.redirect('/admin/booking');
+    }
   },
 };
