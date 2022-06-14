@@ -1,6 +1,11 @@
+const Item = require('../models/item');
+
 module.exports = {
-  landingPage: (req, res) => {
-    const message = 'Hello JSON';
-    res.status(200).json({ message });
+  landingPage: async (req, res) => {
+    const mostPicked = Item.find()
+      .select('_id title country city price unit')
+      .limit(5);
+
+    res.status(200).json({ mostPicked });
   },
 };
