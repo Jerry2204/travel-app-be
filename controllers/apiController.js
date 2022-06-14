@@ -18,6 +18,7 @@ module.exports = {
           path: 'itemId',
           select: '_id title country city isPopular imageId',
           perDocumentLimit: 4,
+          option: { sort: { sumBooking: -1 } },
           populate: {
             path: 'imageId',
             select: '_id imageUrl',
@@ -29,6 +30,31 @@ module.exports = {
       const booking = await Booking.find();
       const city = await Item.find();
 
+      for (let i = 0; i < categories.length; i++) {
+        for (let j = 0; j < categories[i].itemId.length; j++) {
+          const item = await Item.findOne({ _id: categories[i].itemId[j]._id });
+          item.isPopular = false;
+
+          await item.save();
+
+          if (categories[i].itemId[0] === categories[i].itemId[j]) {
+            item.isPopular = true;
+            await item.save();
+          }
+        }
+      }
+
+      const testimonial = {
+        _id: 'asd2364123sdas21',
+        imageUrl: 'images/testimonial1.jpg',
+        name: 'Happy Family',
+        rate: 4.55,
+        content:
+          'What a great trip with my family and I should try again next time soon ...',
+        familyName: 'Angga',
+        familyOccupation: 'Product Designer',
+      };
+
       res.status(200).json({
         hero: {
           travelers: booking.length,
@@ -37,7 +63,11 @@ module.exports = {
         },
         mostPicked,
         category: categories,
+        testimonial,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
   },
 };
