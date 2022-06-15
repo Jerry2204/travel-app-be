@@ -71,6 +71,7 @@ module.exports = {
       res.status(500).json({ message: 'Internal Server Error' });
     }
   },
+
   detailItem: async (req, res) => {
     try {
       const { id } = req.params;
@@ -99,6 +100,45 @@ module.exports = {
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'Internal Server Error' });
+    }
+  },
+
+  booking: async (req, res) => {
+    try {
+      const {
+        duration,
+        bookingDateStart,
+        bookingDateEnd,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        accountHolder,
+        bankFrom,
+        proofPayment,
+      } = req.body;
+
+      if (!req.file) {
+        return res.status(400).json({ message: 'Please upload proof payment' });
+      }
+
+      if (
+        duration === undefined ||
+        bookingDateStart === undefined ||
+        bookingDateEnd === undefined ||
+        firstName === undefined ||
+        lastName === undefined ||
+        email === undefined ||
+        phoneNumber === undefined ||
+        accountHolder === undefined ||
+        bankFrom === undefined
+      ) {
+        res.status(400).json({ message: 'Please fill all field' });
+      }
+
+      res.status(201).json({ message: 'Booking success' });
+    } catch (error) {
+      console.log(error);
     }
   },
 };
