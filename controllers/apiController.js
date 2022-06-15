@@ -3,6 +3,7 @@ const Treasure = require('../models/Activity');
 const Booking = require('../models/Booking');
 const Category = require('../models/Category');
 const Bank = require('../models/Bank');
+const Member = require('../models/Member');
 
 module.exports = {
   landingPage: async (req, res) => {
@@ -106,9 +107,10 @@ module.exports = {
   booking: async (req, res) => {
     try {
       const {
+        itemId,
         duration,
-        bookingDateStart,
-        bookingDateEnd,
+        bookingStartDate,
+        bookingEndDate,
         firstName,
         lastName,
         email,
@@ -123,9 +125,10 @@ module.exports = {
       }
 
       if (
+        itemId === undefined ||
         duration === undefined ||
-        bookingDateStart === undefined ||
-        bookingDateEnd === undefined ||
+        bookingStartDate === undefined ||
+        bookingEndDate === undefined ||
         firstName === undefined ||
         lastName === undefined ||
         email === undefined ||
@@ -136,7 +139,53 @@ module.exports = {
         res.status(400).json({ message: 'Please fill all field' });
       }
 
-      res.status(201).json({ message: 'Booking success' });
+      const item = await Item.findOne({ _id: itemId });
+
+      if (!item) {
+        res.status(404).json({ message: 'Item not found' });
+      }
+
+      item.sumBooking += 1;
+
+      await item.save();
+
+      let total = item.price * duration;
+      let tax = total * 0.1;
+
+      const invoice = Math.floor(1000000 + Math.random() * 9000000);
+
+      const member = await Member.create({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+      });
+
+      member.save();
+
+      const newBooking = {
+        invoice,
+        bookingStartDate,
+        bookingEndDate,
+        total: (total += tax),
+        itemId: {
+          _id: item.id,
+          title: item.title,
+          price: item.price,
+          duration: duration,
+        },
+        memberId: member.id,
+        payments: {
+          proofPayment: `images/${req.file.filename}`,
+          bankFrom: bankFrom,
+          accountHolder: accountHolder,
+          status: 'Pending',
+        },
+      };
+
+      const booking = await Booking.create(newBooking);
+
+      res.status(201).json({ message: 'Booking success', booking });
     } catch (error) {
       console.log(error);
     }
