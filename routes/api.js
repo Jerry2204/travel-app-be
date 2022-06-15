@@ -5,5 +5,6 @@ const apiController = require('../controllers/apiController');
 
 /* GET home page. */
 router.get('/landing-page', apiController.landingPage);
+router.get('/detail-page/:id', apiController.detailItem);
 
 module.exports = router;
