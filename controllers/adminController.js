@@ -56,7 +56,9 @@ module.exports = {
       };
 
       res.redirect('/admin/dashboard');
-    } catch (error) {}
+    } catch (error) {
+      res.redirect('/admin/signin');
+    }
   },
 
   logOut: (req, res) => {
