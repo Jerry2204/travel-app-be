@@ -263,7 +263,6 @@ module.exports = {
   addItem: async (req, res) => {
     try {
       const { categoryId, title, price, city, about } = req.body;
-      console.log(categoryId);
       if (req.files.length > 0) {
         const category = await Category.findOne({ _id: categoryId });
         const newItem = {
@@ -358,7 +357,6 @@ module.exports = {
   editItem: async (req, res) => {
     try {
       const { id } = req.params;
-      console.log(id);
       const { categoryId, title, price, city, about } = req.body;
       const item = await Item.findOne({ _id: id })
         .populate({
@@ -411,7 +409,6 @@ module.exports = {
   deleteItem: async (req, res) => {
     try {
       const { id } = req.params;
-      console.log(id);
       const { categoryId, title, price, city, about } = req.body;
       const item = await Item.findOne({ _id: id }).populate('imageId');
       for (let i = 0; i < item.imageId.length; i++) {
@@ -645,8 +642,6 @@ module.exports = {
       const booking = await Booking.findOne({ _id: id })
         .populate('memberId')
         .populate('bankId');
-
-      console.log(booking);
 
       res.render('admin/booking/detail', {
         title: 'Staycation | Detail Booking',
